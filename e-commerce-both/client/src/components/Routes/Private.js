@@ -6,6 +6,7 @@ import Spinner from "../Spinner";
 
 export default function PrivateRoute() {
   const [ok, setOk] = useState(false);
+  
   const [auth, setAuth] = useAuth();
   // const host="http://localhost:8080";
   const host=process.env.REACT_APP_BACKEND_URL;
@@ -19,6 +20,7 @@ export default function PrivateRoute() {
       }
     };
     if (auth?.token) authCheck();
+   
   }, [auth?.token]);
 
   return ok ? <Outlet /> : <Spinner />;
